@@ -1,0 +1,35 @@
+<div>
+  <label for="breed-select">Select Breed:</label>
+  <select id="breed-select" (change)="onBreedChange($event)">
+    <option *ngFor="let breed of breedNames" [value]="breed">
+      {{ breed }}
+    </option>
+  </select>
+</div>
+
+<div *ngIf="subBreeds.length > 0">
+  <label for="sub-breed-select">Select Sub-breed:</label>
+  <select id="sub-breed-select" [(ngModel)]="selectedSubBreed">
+    <option *ngFor="let subBreed of subBreeds" [value]="subBreed">
+      {{ subBreed }}
+    </option>
+  </select>
+</div>
+
+<div>
+  <button (click)="searchBreed()">Search</button>
+</div>
+
+<div *ngIf="breedImages.length > 0">
+  <h3>Images</h3>
+  <div>
+    Total images:
+    {{breedImages.length}}
+  </div>
+  <div class="d-flex flex-wrap">
+    <div *ngFor="let image of breedImages" >
+        <img [src]="image" alt="Dog image" width="200" />
+      </div>
+  </div>
+  
+</div>
