@@ -27,8 +27,11 @@
     {{breedImages.length}}
   </div>
   <div class="d-flex flex-wrap">
-    <div *ngFor="let image of breedImages" >
+    <div *ngFor="let image of breedImages" class="d-flex flex-column">
         <img [src]="image" alt="Dog image" width="200" />
+        <button (click)="toggelFavorite(image)">
+            {{ isFavorite(image) ? 'Unfavorite' : 'Favorite' }}
+          </button>
       </div>
   </div>
   

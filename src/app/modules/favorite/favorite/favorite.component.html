@@ -1,0 +1,10 @@
+<div *ngIf="favoriteImages.length > 0">
+    <h3>Favorite Images</h3>
+    <div *ngFor="let image of favoriteImages">
+      <img [src]="image" alt="Favorite dog image" width="200">
+      <button (click)="toggleFavorite(image)">
+        Remove Favorite
+      </button>
+    </div>
+  </div>
+  

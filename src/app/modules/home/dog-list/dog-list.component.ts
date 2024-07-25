@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DogBreedService } from '../../../services/dog-breed.service';
+import { FavoritesService } from '../../../services/favorites.service';
 
 @Component({
   selector: 'app-dog-list',
@@ -14,7 +15,7 @@ export class DogListComponent implements OnInit{
   public selectedSubBreed: string | null = null;
   public breedImages: string[] =[];
 
-  constructor(private dogBreedService: DogBreedService) {}
+  constructor(private dogBreedService: DogBreedService, private favoritesService: FavoritesService) {}
 
   ngOnInit(): void {
     this.dogBreedService.getBreeds().subscribe(data => {
@@ -42,6 +43,15 @@ export class DogListComponent implements OnInit{
         this.breedImages = response.message;
       })
     }
+  }
+
+
+  public toggelFavorite(image: string):void {
+    this.favoritesService.toggleFavorite(image);
+  }
+
+  public isFavorite(image:string): boolean{
+    return JSON.parse(localStorage.getItem('favorites') || '[]').includes(image);
   }
 }
 
