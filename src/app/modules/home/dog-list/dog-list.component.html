@@ -22,19 +22,11 @@
   </div>
 
   <div *ngIf="breedImages.length > 0">
-    <h3>Images</h3>
     <div class="mb-2">
       Total images: {{breedImages.length}}
     </div>
     <div class="d-flex flex-wrap justify-content-center">
-      <div *ngFor="let image of breedImages" class="card m-2" style="width: 200px;">
-        <img [src]="image" class="card-img-top" alt="Dog image" style="height: 200px; object-fit: cover;" />
-        <div class="card-body text-center p-2">
-          <button class="btn" (click)="toggelFavorite(image)">
-            <i [class]="isFavorite(image) ? 'fas fa-heart text-danger' : 'far fa-heart'"></i>
-          </button>
-        </div>
-      </div>
+      <app-dog-image *ngFor="let image of breedImages" [imageUrl]="image"></app-dog-image>
     </div>
   </div>
 </div>

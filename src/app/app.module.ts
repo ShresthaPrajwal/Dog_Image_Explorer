@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeModule } from './modules/home/home.module';
-import { FavoriteModule } from './modules/favorite/favorite/favorite.module';
+import { FavoriteModule } from './modules/favorite/favorite.module';
 
 @NgModule({
   declarations: [

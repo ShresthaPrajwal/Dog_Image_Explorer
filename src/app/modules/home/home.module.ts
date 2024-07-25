@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { DogListComponent } from './dog-list/dog-list.component';
 import { HomeComponent } from './home.component';
 import { FormsModule } from '@angular/forms';
+import { SharedComponentModule } from '../shared-component/shared-component.module';
 
 
 
@@ -13,7 +14,8 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    SharedComponentModule
   ],
   exports:[
     HomeComponent
