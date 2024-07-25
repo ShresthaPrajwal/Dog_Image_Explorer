@@ -54,4 +54,3 @@ export class DogListComponent implements OnInit{
     return JSON.parse(localStorage.getItem('favorites') || '[]').includes(image);
   }
 }
-

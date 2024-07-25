@@ -1,38 +1,40 @@
-<div>
-  <label for="breed-select">Select Breed:</label>
-  <select id="breed-select" (change)="onBreedChange($event)">
-    <option *ngFor="let breed of breedNames" [value]="breed">
-      {{ breed }}
-    </option>
-  </select>
-</div>
-
-<div *ngIf="subBreeds.length > 0">
-  <label for="sub-breed-select">Select Sub-breed:</label>
-  <select id="sub-breed-select" [(ngModel)]="selectedSubBreed">
-    <option *ngFor="let subBreed of subBreeds" [value]="subBreed">
-      {{ subBreed }}
-    </option>
-  </select>
-</div>
-
-<div>
-  <button (click)="searchBreed()">Search</button>
-</div>
-
-<div *ngIf="breedImages.length > 0">
-  <h3>Images</h3>
-  <div>
-    Total images:
-    {{breedImages.length}}
+<div class="m-5">
+  <div class="form-group">
+    <label for="breed-select">Select Breed:</label>
+    <select id="breed-select" class="form-control" (change)="onBreedChange($event)">
+      <option *ngFor="let breed of breedNames" [value]="breed">
+        {{ breed }}
+      </option>
+    </select>
   </div>
-  <div class="d-flex flex-wrap">
-    <div *ngFor="let image of breedImages" class="d-flex flex-column">
-        <img [src]="image" alt="Dog image" width="200" />
-        <button (click)="toggelFavorite(image)">
-            {{ isFavorite(image) ? 'Unfavorite' : 'Favorite' }}
+
+  <div *ngIf="subBreeds.length > 0" class="form-group">
+    <label for="sub-breed-select">Select Sub-breed:</label>
+    <select id="sub-breed-select" class="form-control" [(ngModel)]="selectedSubBreed">
+      <option *ngFor="let subBreed of subBreeds" [value]="subBreed">
+        {{ subBreed }}
+      </option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-primary" (click)="searchBreed()">Search</button>
+  </div>
+
+  <div *ngIf="breedImages.length > 0">
+    <h3>Images</h3>
+    <div class="mb-2">
+      Total images: {{breedImages.length}}
+    </div>
+    <div class="d-flex flex-wrap justify-content-center">
+      <div *ngFor="let image of breedImages" class="card m-2" style="width: 200px;">
+        <img [src]="image" class="card-img-top" alt="Dog image" style="height: 200px; object-fit: cover;" />
+        <div class="card-body text-center p-2">
+          <button class="btn" (click)="toggelFavorite(image)">
+            <i [class]="isFavorite(image) ? 'fas fa-heart text-danger' : 'far fa-heart'"></i>
           </button>
+        </div>
       </div>
+    </div>
   </div>
-  
 </div>
