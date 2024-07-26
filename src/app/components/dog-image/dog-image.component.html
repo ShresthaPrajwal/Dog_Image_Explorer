@@ -1,0 +1,17 @@
+<div class="card m-2 dog-image-card" (click)="openPopup()">
+  <div class="image-wrapper">
+    <img [src]="imageUrl" class="card-img-top" alt="Dog image" />
+  </div>
+  <div class="card-body text-center p-2">
+    <button class="btn" (click)="toggleFavorite(); $event.stopPropagation()">
+      <i [class]="isFavorite() ? 'fas fa-heart text-danger' : 'far fa-heart'"></i>
+    </button>
+  </div>
+</div>
+
+<div *ngIf="isPopupOpen" class="popup-overlay" (click)="closePopup()">
+  <div class="popup-content" (click)="$event.stopPropagation()">
+    <img [src]="imageUrl" class="popup-image" alt="Dog image" />
+    <button class="popup-close" (click)="closePopup()">×</button>
+  </div>
+</div>
