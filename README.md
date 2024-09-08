@@ -1,4 +1,9 @@
 # DogApp
+Dog app is a webpage to explore dog images for different breeds.
+
+![image](https://github.com/user-attachments/assets/fc42e165-b603-4178-aadc-5075200a7d85)
+
+You can save images as your favorite in local machine too.😊
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.8.
 
